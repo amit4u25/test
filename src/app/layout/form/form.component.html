@@ -1,0 +1,107 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Add Test'" [icon]="'fa-edit'"></app-page-header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-2 show-position"></div>
+            <div class="col-lg-8 show-position">
+                <form role="form">
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Test Name</label>
+                        </span>
+
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Name for test</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">LOB</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">LOB</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Monitors</label>
+                        </span>
+                        <select class="form-control input-content">
+                            <option>Please select your Monitoring APM...</option>
+                            <option>AppDynamics</option>
+                            <option>Argus</option>
+                            <option>CloudWatch</option>
+                            <option>PinPont</option>
+                            <option>Do Not have</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Test Location</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Github URL for test</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Filename</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Filename of test</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Text Input</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Name is required</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Number of Agents</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Number of Agents required for test</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Target Response Time</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Response time SLA for test in Milliseconds</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Target TPS</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Transactions per Seconds SLA for test</p>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Error Rate (%)</label>
+                        </span>
+                        <input class="form-control input-content">
+                        <p class="help-block error-contnet">Error rate threshold</p>
+                    </fieldset>
+
+
+
+                    <button type="reset" class="btn btn-secondary button-content">Reset</button>
+                    <button type="submit" class="btn btn-secondary button-content">Submit</button>
+
+                </form>
+            </div>
+            <div class="col-lg-2 show-position"></div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
