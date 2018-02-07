@@ -4,3 +4,16 @@
 @import "utils";
 @import "rtl";
 @import "responsive";
+.fade {
+    opacity: 1 !important;
+}
+.modal-dialog.undefined {
+    top: 35%;
+}
+.modal-header .close {
+    display: none;
+}
+modal-header {
+    margin: 0 auto;
+    padding-top: 15px;
+}

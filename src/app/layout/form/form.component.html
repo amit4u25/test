@@ -27,13 +27,8 @@
                         <span class="span-content">
                             <label class="label-content">Monitors</label>
                         </span>
-                        <select class="form-control input-content">
-                            <option>Please select your Monitoring APM...</option>
-                            <option>AppDynamics</option>
-                            <option>Argus</option>
-                            <option>CloudWatch</option>
-                            <option>PinPont</option>
-                            <option>Do Not have</option>
+                        <select class="form-control input-content" (change)="onChange($event.target.value)">
+                            <option *ngFor="let list of dropdownList">{{list.name}}</option>
                         </select>
                     </fieldset>
 
@@ -94,7 +89,6 @@
                     </fieldset>
 
 
-
                     <button type="reset" class="btn btn-secondary button-content">Reset</button>
                     <button type="submit" class="btn btn-secondary button-content">Submit</button>
 
@@ -105,3 +99,31 @@
     </div>
     <!-- /.row -->
 </div>
+
+<modal #myModal>
+    <modal-header>
+        <h3>Login to {{selectedValue}}</h3>
+    </modal-header>
+    <modal-content>
+        <form role="form">
+            <fieldset class="form-group">
+                <span class="modal-label-content">
+                    <label class="labels">User Name</label>
+                </span>
+                <input type="text" class="form-control input-content"  required>
+                <p>Please enter the username</p>
+            </fieldset>
+            <fieldset class="form-group">
+                <span class="modal-label-content">
+                    <label class="labels">Password</label>
+                </span>
+                <input type="password" class="form-control input-content"  required>
+                <p>Please enter the password</p>
+            </fieldset>
+        </form>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-primary" routerLink="/application">SUBMIT</button>
+        <button class="btn btn-primary" (click)="myModal.close()">close</button>
+    </modal-footer>
+</modal>

@@ -1,0 +1,32 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Application'" [icon]="'fa-edit'"></app-page-header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-2 show-position"></div>
+            <div class="col-lg-8 show-position">
+                <div class="alert alert-success alert-dismissible" (click)="toggle(0)">App1</div>
+                <div *ngIf="toggleZero">
+                    <div class="subcategory alert alert-info alert-dismissible"  *ngFor="let list of dataListZero"> {{list}}</div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 show-position">
+                <div class="alert alert-success alert-dismissible" (click)="toggle(1)">App2</div>
+                <div *ngIf="toggleFirst">
+                    <div class="subcategory alert alert-info alert-dismissible"  *ngFor="let list of dataListFirst"> {{list}}</div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 show-position">
+                <div class="alert alert-success alert-dismissible" (click)="toggle(2)">App3</div>
+                <div *ngIf="toggleSecond">
+                    <div class="subcategory alert alert-info alert-dismissible"  *ngFor="let list of dataListSecond"> {{list}}</div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 show-position"></div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
