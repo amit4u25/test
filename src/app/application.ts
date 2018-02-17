@@ -15,14 +15,6 @@ export class Application {
         this.httpClient = httpClient;
     }
 
-
-    // to get Delivery Data
-    getQuestion(): Observable<any> {
-        return this.httpClient.get(this.getDeliveryData)
-            .map(this.extractResponse)
-            .catch(this.handleError.bind(this));
-    }
-
     // handle responce which is got from map function
     private extractResponse(res) {
         return res;
