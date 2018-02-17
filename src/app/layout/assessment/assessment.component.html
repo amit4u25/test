@@ -1,0 +1,55 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Assessment'" [icon]="'fa-edit'"></app-page-header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-2 show-position"></div>
+            <div class="col-lg-10 show-position">
+                <form role="form">
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Select Question</label>
+                        </span>
+                        <select class="form-control input-content" (change)="onChange($event.target.value)">
+                            <option *ngFor="let list of selectValue">{{list.question}}</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <table *ngFor="let list of qustions; let idx = index" class="table-top">
+                            <thead>
+                            <td>{{idx + 1 }}. {{list.question}}</td>
+                            </thead>
+                            <tbody>
+                                <tr class="radio-rows">
+                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="true"  (change)="onSelectionChange(true, idx)">Yes
+                                </tr>
+                                <tr class="radio-rows">
+                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="false"  (change)="onSelectionChange(false, idx)">No
+                                </tr>
+                            </tbody>
+                           <div *ngIf="list.isType">
+                            <table *ngFor="let secondList of list.tierThreeQuestion; let idy = index" class="table-top second-table">
+                                <thead>
+                                <td>{{idx + 1}}.{{idy + 1 }}. {{secondList.question}}</td>
+                                </thead>
+                                <tbody>
+                                <tr class="radio-rows">
+                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="true"  (change)="onSecondSelectionChange(true, idx, idy)">Yes
+                                </tr>
+                                <tr class="radio-rows">
+                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="false"  (change)="onSecondSelectionChange(false, idx, idy)">No
+                                </tr>
+                                </tbody>
+                            </table>
+                           </div>
+                        </table>
+                    </fieldset>
+                </form>
+                <button type="reset" class="btn btn-secondary button-content" (click)="back()">BACK</button>
+                <button type="submit" class="btn btn-secondary button-content" (click)="submit()">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
