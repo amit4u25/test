@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HttpClientHelper {
@@ -14,6 +14,16 @@ export class HttpClientHelper {
     get(): Observable<any> {
         let url = 'http://riskassesment.ap-south-1.elasticbeanstalk.com/maintenance/all';
         return this.http.get<any>(url)
+            .map(user => {
+                return user;
+            });
+    }
+
+    submitAnswer(data): Observable<any> {
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'application/json');
+        let url = 'http://riskassesment.ap-south-1.elasticbeanstalk.com/score/evaluate';
+        return this.http.post(url, data, { headers: headers })
             .map(user => {
                 return user;
             });

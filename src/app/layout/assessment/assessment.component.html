@@ -8,7 +8,24 @@
                 <form role="form">
                     <fieldset class="form-group">
                         <span class="span-content">
-                            <label class="label-content">Select Question</label>
+                            <label class="label-content">BAP: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        </span>
+                        <input class="form-control input-content" #baps (keyup)="bap(baps.value)">
+
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Release Version: </label>
+                        </span>
+                        <input class="form-control input-content" #releaseVersion (keyup)="version(releaseVersion.value)">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <span class="span-content">
+                            <label class="label-content">Select Question: </label>
                         </span>
                         <select class="form-control input-content" (change)="onChange($event.target.value)">
                             <option *ngFor="let list of selectValue">{{list.question}}</option>
@@ -22,10 +39,10 @@
                             </thead>
                             <tbody>
                                 <tr class="radio-rows">
-                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="true"  (change)="onSelectionChange(true, idx)">Yes
+                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="true"  (change)="onSelectionChange(true, idx, list.id)">Yes
                                 </tr>
                                 <tr class="radio-rows">
-                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="false"  (change)="onSelectionChange(false, idx)">No
+                                    <input class="radio-buttons" type="radio" name="{{list.id}}" [value]="false"  (change)="onSelectionChange(false, idx, list.id)">No
                                 </tr>
                             </tbody>
                            <div *ngIf="list.isType">
@@ -35,10 +52,10 @@
                                 </thead>
                                 <tbody>
                                 <tr class="radio-rows">
-                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="true"  (change)="onSecondSelectionChange(true, idx, idy)">Yes
+                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="true"  (change)="onSecondSelectionChange(true, idx, idy, secondList.id)">Yes
                                 </tr>
                                 <tr class="radio-rows">
-                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="false"  (change)="onSecondSelectionChange(false, idx, idy)">No
+                                    <input class="radio-buttons" type="radio" name="{{secondList.id}}" [value]="false"  (change)="onSecondSelectionChange(false, idx, idy, secondList.id)">No
                                 </tr>
                                 </tbody>
                             </table>
