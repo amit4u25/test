@@ -60,13 +60,13 @@ export class AssessmentComponent implements OnInit {
             questionAnswer: []
         };
 
-        for (let i = 0; i < this.indexArray.length; i++) {
-            let input = {
-                answer: this.answerArray[i],
-                questionId: this.answerId[i]
-            };
-            answer.questionAnswer.push(input);
-        }
+        // for (let i = 0; i < this.indexArray.length; i++) {
+        //     let input = {
+        //         answer: this.answerArray[i],
+        //         questionId: this.answerId[i]
+        //     };
+        //     answer.questionAnswer.push(input);
+        // }
 
         // let subAnswer = [];
         for (let j = 0; j < this.subIndexFirstArray.length; j++) {
@@ -78,8 +78,12 @@ export class AssessmentComponent implements OnInit {
         }
 
         this.application.submitAnswer(answer).subscribe(
-            data => this.success(data)
+            data => this.successAnswer(data)
         );
+    }
+
+    successAnswer(data) {
+        console.log(data);
     }
 
     back() {

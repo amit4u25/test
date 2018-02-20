@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HttpClientHelper {
-
+    private _headers = new HttpHeaders().set('Content-Type', 'application/json');
     constructor(private http: HttpClient) {
         this.http = http;
     }
@@ -20,8 +20,7 @@ export class HttpClientHelper {
     }
 
     submitAnswer(data): Observable<any> {
-        const headers = new HttpHeaders();
-        headers.append('Content-Type', 'application/json');
+        const headers = this._headers;
         let url = 'http://riskassesment.ap-south-1.elasticbeanstalk.com/score/evaluate';
         return this.http.post(url, data, { headers: headers })
             .map(user => {
