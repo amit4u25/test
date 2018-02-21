@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HttpClientHelper {
+    results: any = '';
     private _headers = new HttpHeaders().set('Content-Type', 'application/json');
     constructor(private http: HttpClient) {
         this.http = http;
@@ -36,5 +37,13 @@ export class HttpClientHelper {
     private handleError(error: Response): Observable<any> {
         const result = error.json();
         return Observable.throw(result || 'Server error');
+    }
+
+    setResult(data) {
+        this.results = data;
+    }
+
+    getResult() {
+        return this.results;
     }
 }

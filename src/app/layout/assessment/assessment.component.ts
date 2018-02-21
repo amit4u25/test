@@ -84,6 +84,16 @@ export class AssessmentComponent implements OnInit {
 
     successAnswer(data) {
         console.log(data);
+        if (data) {
+            if (data.performanceTestingRequired) {
+                data.performanceTestingRequired = 'Required';
+            } else {
+                data.performanceTestingRequired = 'Not Required';
+            }
+        }
+
+        this.application.setResult(data);
+        this.router.navigate(['result']);
     }
 
     back() {
