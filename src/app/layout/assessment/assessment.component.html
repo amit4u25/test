@@ -13,7 +13,7 @@
                             </label>
                         </span>
                         <input class="form-control input-content" #baps (keyup)="bap(baps.value)">
-
+                        <div class='error-msg' *ngIf="nameError">Bap is required.</div>
                     </fieldset>
 
                     <fieldset class="form-group">
@@ -21,6 +21,7 @@
                             <label class="label-content">Release Version: </label>
                         </span>
                         <input class="form-control input-content" #releaseVersion (keyup)="version(releaseVersion.value)">
+                        <div class="error-msg" *ngIf="versionError">Release Version is required.</div>
                     </fieldset>
 
                     <fieldset class="form-group">

@@ -3,37 +3,24 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="col-lg-2 show-position"></div>
-            <div class="col-lg-8 show-position">
-                <form role="form">
-                    <fieldset class="form-group">
-                        <span class="span-content">
-                            <label class="label-content">BAP</label>
-                        </span>{{result.bap}}
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <span class="span-content">
-                            <label class="label-content">Release Version</label>
-                        </span>{{result.releaseVersion}}
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <span class="span-content">
-                            <label class="label-content">Score</label>
-                        </span>{{result.score}}
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <span class="span-content">
-                            <label class="label-content">Performance Testing</label>
-                        </span>{{result.performanceTestingRequired}}
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <span class="span-content">
-                            <label class="label-content">Risk Category</label>
-                        </span>{{result.riskcategory}}
-                    </fieldset>
-                </form>
-            </div>
-            <div class="col-lg-2 show-position"></div>
+            <table>
+                <tr>
+                    <th>BAP</th>
+                    <th>Release Version</th>
+                    <th>Risk Assesed</th>
+                    <th>Risk Score</th>
+                    <th>Test Date</th>
+                </tr>
+                <tr *ngFor="let data of result ">
+                    <td>{{data.bap}}</td>
+                    <td>{{data.releaseVersion}}</td>
+                    <td>{{data.riskAssesed}}</td>
+                    <td>{{data.riskScore}}</td>
+                    <td>{{data.createdAt}}</td>
+                </tr>
+
+            </table>
+
         </div>
     </div>
     <!-- /.row -->

@@ -11,6 +11,8 @@ import index from '@angular/cli/lib/cli';
 })
 export class AssessmentComponent implements OnInit {
     answerArray: any = [];
+    nameError:boolean = false;
+    versionError:boolean = false;
     indexArray: any = [];
     subAnswerArray: any = [];
     subIndexFirstArray: any = [];
@@ -76,10 +78,26 @@ export class AssessmentComponent implements OnInit {
             };
             answer.questionAnswer.push(data);
         }
+        if (this.bapdata.length > 0 || this.eventData.length > 0) {
+            if (this.bapdata.length <= 0) {
+                console.log("bap", this.bapdata);
+                this.nameError = true;
+            } else if (this.eventData.length <= 0) {
+                this.versionError = true;
+                console.log("version", this.eventData);
+            } else {
+                this.nameError = false;
+                this.versionError = false;
+                this.application.submitAnswer(answer).subscribe(
+                    data => this.successAnswer(data)
+                );
+            }
+        } else {
+            this.nameError = true;
+            this.versionError = true;
+        }
 
-        this.application.submitAnswer(answer).subscribe(
-            data => this.successAnswer(data)
-        );
+
     }
 
     successAnswer(data) {
@@ -92,7 +110,6 @@ export class AssessmentComponent implements OnInit {
             }
         }
 
-        this.application.setResult(data);
         this.router.navigate(['result']);
     }
 
@@ -233,8 +250,18 @@ export class AssessmentComponent implements OnInit {
 
     bap(data) {
         this.bapdata = data;
+        if (data.length > 0) {
+            this.nameError = false;
+        } else {
+            this.nameError = true;
+        }
     }
     version(data) {
         this.eventData = data;
+        if (data.length > 0) {
+            this.versionError = false;
+        } else {
+            this.versionError = true;
+        }
     }
 }

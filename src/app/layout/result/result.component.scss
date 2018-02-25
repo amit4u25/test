@@ -1,47 +1,15 @@
-.show-position {
-    position: relative;
-    float: left;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.input-content {
-    position: relative;
-    float: left;
-    width: 65%;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
-.span-content {
-    position: relative;
-    float: left;
-    width: 35%;
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
-
-.label-content {
-    position: relative;
-    float: right;
-    padding-right: 25px;
-}
-
-.error-contnet {
-    position: relative;
-    float: left;
-    padding-left: 35%;
-}
-
-.button-content {
-    float: right;
-    padding-top: 10px;
-    margin-top: 15px;
-    margin-left: 10px;
-}
-
-label.labels {
-    float: right;
-    padding-right: 15px;
-}
-
-span.modal-label-content {
-    float: left;
-    position: relative;
-    width: 25%;
-}
-

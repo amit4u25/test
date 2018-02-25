@@ -39,11 +39,12 @@ export class HttpClientHelper {
         return Observable.throw(result || 'Server error');
     }
 
-    setResult(data) {
-        this.results = data;
-    }
-
     getResult() {
-        return this.results;
+        const headers = this._headers;
+        let url = 'http://riskassesment.ap-south-1.elasticbeanstalk.com/score/all';
+        return this.http.get(url, { headers: headers })
+            .map(user => {
+                return user;
+            });
     }
 }

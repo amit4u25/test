@@ -13,10 +13,22 @@ export class ResultComponent implements OnInit {
     result: any;
     constructor(private router: Router,
                 private application: HttpClientHelper) {
-        this.result =  this.application.getResult();
+        // this.result =  this.application.getResult();
+        this.showTable();
     }
 
     ngOnInit() {}
 
+    showTable() {
+        this.application.getResult().subscribe(
+            data => this.success(data)
+        );
+    }
 
+    success(data) {
+        data.forEach(item => {
+            item.createdAt = new Date(item.createdAt * 1000);
+        })
+        this.result = data;
+    }
 }
