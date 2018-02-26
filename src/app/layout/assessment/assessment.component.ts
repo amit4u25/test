@@ -109,7 +109,7 @@ export class AssessmentComponent implements OnInit {
                 data.performanceTestingRequired = 'Not Required';
             }
         }
-
+        this.application.setResult(data);
         this.router.navigate(['result']);
     }
 

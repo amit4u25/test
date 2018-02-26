@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpClientHelper {
     results: any = '';
+    resultData: any = '';
     private _headers = new HttpHeaders().set('Content-Type', 'application/json');
     constructor(private http: HttpClient) {
         this.http = http;
@@ -46,5 +47,13 @@ export class HttpClientHelper {
             .map(user => {
                 return user;
             });
+    }
+
+    setResult(data) {
+        this.resultData = data;
+    }
+
+    getResultData() {
+        return this.resultData;
     }
 }
